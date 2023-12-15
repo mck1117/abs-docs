@@ -1,6 +1,8 @@
 ## Wiring
 
-### Grey "ABS module" Connector
+# Wiring
+
+## Grey "ABS module" Connector
 
 | Pin | Function | Mk60 Pin | MK60E1/e5 Pin |
 |--|--|--|--|
@@ -26,7 +28,7 @@
 - TE/Deutsch DTM06-12SA
 - Amphenol ATM06-12SA
 
-### Black "Chassis" Connector
+## Black "Chassis" Connector
 
 | Pin | Function | Notes |
 |--|--|--|

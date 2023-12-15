@@ -1,4 +1,4 @@
-## Configuration
+# Configuration
 
 <!-- todo: how to connect to controller -->
 
