@@ -1,5 +1,3 @@
-## Wiring
-
 # Wiring
 
 ## Grey "ABS module" Connector
