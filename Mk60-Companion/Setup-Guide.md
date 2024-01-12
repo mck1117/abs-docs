@@ -6,6 +6,8 @@
 
 ## Resources
 
+[Troubleshooting](Troubleshooting.md)
+
 [CAN bus transmit format](CAN-Data.md)
 
 [Discord community](https://discord.gg/mhp6THSr8B)
