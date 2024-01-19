@@ -12,6 +12,6 @@
 
 [CAN bus transmit format](CAN-Data.md)
 
-[Discord community](https://discord.gg/mhp6THSr8B)
+[Discord community](https://discord.gg/hQUz5Vgk9Z)
 
 [Mk60 Companion in the Happy Cactus Garage Store](https://happycactusgarage.com/products/mk60-companion)
