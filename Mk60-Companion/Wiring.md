@@ -1,5 +1,13 @@
 # Wiring
 
+## General Info
+
+Both connectors are Deutsch DTM/Amphenol ATM-style 12-pin connectors, one with the "A" keying (grey) and one with "B" keying (black). Included with the kit are solid style crimp terminals for 0.35-0.5 mm2/20-22 AWG wire.
+
+Install the included cavity plugs (white plastic pins) in any unused positions in the connectors. Without all positions filled with a wire or plug, the connectors are not waterproof!
+
+When mounting the module, any orientation is acceptable so long as the connectors are not pointed significantly upward. This can cause water ingress to the connectors if water is allowed to pool in them.
+
 ## Grey "ABS module" Connector
 
 | Pin | Function | Mk60 Pin | MK60E1/e5 Pin |
