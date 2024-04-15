@@ -15,7 +15,7 @@ When mounting the module, any orientation is acceptable so long as the connector
 | Pin | Function | Mk60 Pin | MK60E1/e5 Pin |
 |--|--|--|--|
 | 1 | PT-CAN low | 15 | 15 |
-| 2 | Brake switch signal <sup>1</sup> | 14 | 4 |
+| 2 | Brake switch signal <sup>1</sup> | 41 | 4 |
 | 3 | Rear right - | 42 | 42 |
 | 4 | Rear left - | 37 | 37 |
 | 5 | Front right - | 33 | 33 |
