@@ -33,7 +33,7 @@ NS_ :
 
 BS_:
 
-BU_: DSC
+BU_: MRS CON FZD EKP EDC ZBE RLS RPA FRM BDSC LDM AFS GWS JBBF DKG IHKA KOMBI ACC EGS SZL PDC CIC DSC DME DDE CAS
 
 
 VAL_TABLE_ DSC_CC_ID 357 "MDM activated." 354 "Start-off assistance inactive!" 353 "Brakes overheated!" 352 "Brakes too hot!" 336 "Yellow TPMS light." 334 "EOL Standardize RPA." 237 "DSC Failure" 236 "ABS and DSC failure." 215 "Yellow DSC light." 184 "DTC activated," 74 "Brake fluid low!" 71 "Replace Brake pads!" 63 "Tyre failure!" 50 "Flat tyre monitor failed." 42 "EBV/CBC failure." 36 "DSC deactivated!" 35 "DSC failed." 24 "DBC failure." ;
@@ -451,9 +451,9 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ ANG_ACPD : 24|8@1+ (0.39063,0) [0|99.22002] "%" Vector__XXX
  SG_ RPM_ENG : 32|16@1+ (0.25,0) [0|8000] "1/min" Vector__XXX
  SG_ TEMP_EOI : 8|8@1+ (1,-48) [-48|206] "°C" Vector__XXX
- SG_ TEMP_ENG : 0|8@1+ (1,-48) [-48|206] "°C" Vector__XXX
+ SG_ TEMP_ENG : 0|8@1+ (1,-48) [-48|206] "°C"  CAS
  SG_ ST_SW_WAUP : 22|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_ENG_RUN : 20|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_ENG_RUN : 20|2@1+ (1,0) [0|0] ""  CAS
  SG_ RPM_IDLG_TAR : 56|8@1+ (5,0) [0|1270] "1/min" Vector__XXX
  SG_ IJV_FU : 32|16@1+ (1,0) [0|65534] "µl" Vector__XXX
  SG_ CTR_SLCK : 48|2@1+ (1,0) [0|0] "" Vector__XXX
@@ -502,18 +502,18 @@ BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
  SG_ ST_VHIM : 18|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_PSVA_ACV : 26|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_LOKG_STCO : 20|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_KL_R : 0|2@1+ (1,0) [0|0] ""  DSC
- SG_ ST_KL_50 : 4|2@1+ (1,0) [0|0] ""  DSC
- SG_ ST_KL_15 : 2|2@1+ (1,0) [0|0] ""  DSC
+ SG_ ST_KL_R : 0|2@1+ (1,0) [0|0] ""  CAS,DME,DSC
+ SG_ ST_KL_50 : 4|2@1+ (1,0) [0|0] ""  CAS,DME,DSC
+ SG_ ST_KL_15 : 2|2@1+ (1,0) [0|0] ""  DME,DSC,PDC
  SG_ ST_KLCK : 22|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_KEY_VLD : 6|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_KEY_TYP : 12|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_KEY_PLGD : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ST_KEY_PLGD : 16|2@1+ (1,0) [0|0] ""  CAS
  SG_ ST_ILK_COD_BM : 28|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ PO_ID_PU : 24|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ NO_KEY : 8|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CHKSM_KL : 36|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ALIV_KL : 32|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ NO_KEY : 8|4@1+ (1,0) [0|0] ""  CAS,DME
+ SG_ CHKSM_KL : 36|4@1+ (1,0) [0|0] ""  DME
+ SG_ ALIV_KL : 32|4@1+ (1,0) [0|0] ""  DME
  SG_ CNTR_M_BUTTON : 16|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ M_BUTTON_XOR : 6|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ M_BUTTON : 14|2@1+ (1,0) [0|0] "" Vector__XXX
@@ -629,22 +629,24 @@ BO_ 414 ST_DSC: 8 DSC
  SG_ ST_ABS : 8|2@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 416 SPEED: 8 DSC
- SG_ V_VEH : 0|12@1+ (0.1,0) [0.1|350] "km/h"  DSC
- SG_ ST_VEH_DVCO : 12|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ V_VEH : 0|12@1+ (0.1,0) [0.1|350] "km/h"  CAS,DME,DSC,PDC
+ SG_ ST_VEH_DVCO : 12|3@1+ (1,0) [0|0] ""  CAS
  SG_ CHKSM_V : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ANGV_YAW_DSC : 40|12@1- (0.05,0) [0|0] "°/s" Vector__XXX
  SG_ ALIV_V : 52|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ACLN_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.175|51.175] "m/s²" Vector__XXX
- SG_ ACLN_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.175|51.175] "m/s²"  DSC
+ SG_ ACLN_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.175|51.175] "m/s²"  DME
+ SG_ ACLN_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.175|51.175] "m/s²"  DME,DSC
 
 BO_ 206 WHEEL_SPEEDS: 8 DSC
- SG_ V_WHL_RRH : 48|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
- SG_ V_WHL_RLH : 32|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
- SG_ V_WHL_FRH : 16|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
- SG_ V_WHL_FLH : 0|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
+ SG_ V_WHL_RRH : 48|16@1- (0.0625,0) [-300|300] "km/h"  DME
+ SG_ V_WHL_RLH : 32|16@1- (0.0625,0) [-300|300] "km/h"  DME
+ SG_ V_WHL_FRH : 16|16@1- (0.0625,0) [-300|300] "km/h"  DME
+ SG_ V_WHL_FLH : 0|16@1- (0.0625,0) [-300|300] "km/h"  DME
 
 
 
+CM_ BU_ MRS "Airbags";
+CM_ BU_ SZL "SZL: SchaltZentrum Lenkrad, switch center steering wheel";
 CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
 CM_ SG_ 3221225472 ST_MDRV "0b01 MDRV off
 0b10 MDRV on";
@@ -1059,6 +1061,10 @@ BA_ "<NET-SIGNAL><LONG-NAME>" SG_ 206 V_WHL_FRH "";
 BA_ "<NET-SIGNAL><INIT-VALUE>" SG_ 206 V_WHL_FRH "";
 BA_ "<NET-SIGNAL><LONG-NAME>" SG_ 206 V_WHL_FLH "";
 BA_ "<NET-SIGNAL><INIT-VALUE>" SG_ 206 V_WHL_FLH "";
+BA_ "MCV-Nummer" BU_ PDC "1622";
+BA_ "<NET-NODE><LONG-NAME>" BU_ PDC "PDC";
+BA_ "MCV-Nummer" BU_ CIC "1612";
+BA_ "<NET-NODE><LONG-NAME>" BU_ CIC "NAVI";
 BA_ "MCV-Nummer" BU_ DSC "1572";
 BA_ "<NET-NODE><LONG-NAME>" BU_ DSC "DSC_Modul";
 BA_ "DiagnoseStationsAdresse" BU_ DSC 41;
@@ -1066,6 +1072,17 @@ BA_ "NWM_Stationsadresse" BU_ DSC 40;
 BA_ "MessageManagerUsed" BU_ DSC 1;
 BA_ "NWM-Knoten" BU_ DSC 1;
 BA_ "NWM-Stationsadresse" BU_ DSC 41;
+BA_ "MCV-Nummer" BU_ DME "1570";
+BA_ "<NET-NODE><LONG-NAME>" BU_ DME "DME1";
+BA_ "DiagnoseStationsAdresse" BU_ DME 18;
+BA_ "NWM_Stationsadresse" BU_ DME 18;
+BA_ "MessageManagerUsed" BU_ DME 1;
+BA_ "NWM-Knoten" BU_ DME 1;
+BA_ "NWM-Stationsadresse" BU_ DME 18;
+BA_ "MCV-Nummer" BU_ DDE "1568";
+BA_ "<NET-NODE><LONG-NAME>" BU_ DDE "DDE1";
+BA_ "MCV-Nummer" BU_ CAS "1565";
+BA_ "<NET-NODE><LONG-NAME>" BU_ CAS "CAS";
 VAL_ 884 ST_WHL_TOL 2 "SIGNAL INVALID" 1 "ADJUSTMENT DONE" 0 "ADJUSTMENT NOT DONE" ;
 VAL_ 414 ST_BRP 3 "Signal Invalid" 2 "No Statement Possible" 1 "Brake Pressure Present" 0 "No Brake Pressure" ;
 VAL_ 414 ST_DCRN_AVL 3 "HBA Intervention" 1 "DCC Intervention" 15 "signal invalid" 2 "EMF Intervention" 0 "no requirement" ;
