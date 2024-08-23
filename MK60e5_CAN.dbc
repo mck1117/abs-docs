@@ -116,10 +116,10 @@ BO_ 416 SPEED: 8 DSC
  SG_ V_VEH : 0|12@1+ (0.1,0) [0.1|350] "km/h"  DSC
  SG_ ST_VEH_DVCO : 12|3@1+ (1,0) [0|0] "" Vector__XXX
  SG_ CHKSM_V : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ANGV_YAW_DSC : 40|12@1- (0.05,0) [0|0] "�/s" Vector__XXX
+ SG_ ANGV_YAW_DSC : 40|12@1- (0.05,0) [0|0] "deg/s" Vector__XXX
  SG_ ALIV_V : 52|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ACLN_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.175|51.175] "m/s�" Vector__XXX
- SG_ ACLN_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.175|51.175] "m/s�"  DSC
+ SG_ ACLN_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.175|51.175] "m/s2" Vector__XXX
+ SG_ ACLN_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.175|51.175] "m/s2"  DSC
 
 BO_ 206 WHEEL_SPEEDS: 8 DSC
  SG_ V_WHL_RRH : 48|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
