@@ -14,6 +14,8 @@
 
 [Troubleshooting](Troubleshooting.md)
 
+[MK60e5 CAN bus protocol](../MK60e5_CAN.dbc)
+
 [CAN bus transmit format](CAN-Data.md)
 
 ## External links
