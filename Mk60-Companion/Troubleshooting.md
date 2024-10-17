@@ -17,4 +17,4 @@ _[See connection guide here first!](Configuration.md)_
 1. While holding the pushbutton labeled `Bootloader`, connect USB (then release the button). Red/green/yellow lights should flash in sync.
 1. Attempt a firmware update [as described here](Configuration.md)
 
-If you're still stuck, get in touch either via [the Discord community](https://discord.gg/mhp6THSr8B) or [the contact form](https://happycactusgarage.com/pages/contact-us).
+If you're still stuck, get in touch either via [the Discord community](https://discord.gg/hQUz5Vgk9Z) or [the contact form](https://happycactusgarage.com/pages/contact-us).
