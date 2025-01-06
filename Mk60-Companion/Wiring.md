@@ -8,7 +8,13 @@ Both connectors are Deutsch DTM/Amphenol ATM-style 12-pin connectors, one with t
 
 Install the included cavity plugs (white plastic pins) in any unused positions in the connectors. Without all positions filled with a wire or plug, the connectors are not waterproof!
 
-When mounting the module, any orientation is acceptable so long as the connectors are not pointed significantly upward. This can cause water ingress to the connectors if water is allowed to pool in them.
+When mounting the module, any orientation is acceptable so long as the connectors are not pointed significantly upward. This can cause water ingress to the connectors if water is allowed to pool.
+
+## Wiring Diagram
+
+Here's a diagram of the basic wiring required for a standalone Mk60e1/Mk60e5 install using the Happy Cactus Garage Mk60 Converter. This shows pin numbers for the Mk60e1 and Mk60e5 - the Mk60 (non-e) is similar in concept, but some pins are different.
+
+![Mk60e5 wiring diagram](img/mk60-wiring.png)
 
 ## Grey "ABS module" Connector
 
