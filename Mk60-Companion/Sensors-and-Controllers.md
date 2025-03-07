@@ -8,14 +8,13 @@
 
 ## Sensor Types
 
+### Sensor type identification
+
+Check the resistance between the two sensor pins using a multimeter. If the resistance in both directions (swap +/-) match, and is in the range of 500-3000 ohms, you have a VR sensor. Anything else is a Hall sensor.
+
 ## VR aka "Passive"
 
 VR (variable reluctance) sensors are the oldest type of wheel speed sensor, and detect teeth going by with a coil of wire wrapped around a permanent magnet. Metal teeth traveling by the sensor tip distort the magnetic field and induce a voltage in the coil.
-
-#### VR Sensor Identification
-
-Check the resistance between the two sensor pins using a multimeter. If the resistance in both directions (swap +/-) match, and is in the range of 500-3000 ohms, you have a VR sensor.
-
 
 ## Hall Effect aka "Active"
 
@@ -27,11 +26,11 @@ By far the most common sensor type on post-2000 cars. These sensors change their
 
 ### AK-protocol Hall
 
-These are the strange sensors found on E8x/E9x cars fitted with an Mk60e5 controller.
+These are the strange sensors found on E8x/E9x cars fitted with an Mk60e5 controller. They send a higher current pulse for timing, then transmit 9 bits of extra data about wheel direction, sensor field strength, and diagnostics. Everybody seems to agree this was a mistake, as they exist possibly only on 2005-2013 BMWs like the E87 and E90.
+
+There's a more in-depth comparison of different sensor types available here: [AN296246-Speed-Sensor-Protocols.pdf](AN296246-Speed-Sensor-Protocols.pdf)
 
 # Mk60 Module Types
-
-### Summary
 
 | Controller | Pressure sensors | Wheel speed sensor type | Source |
 |--|--|--|--|
