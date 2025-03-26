@@ -3,8 +3,8 @@
 | Sensor type | Mk60 | Mk60e1 | Mk60e5 |
 |--|--|--|--|
 | VR | ✅ Yes, with Happy Cactus converter | ✅ Yes, with Happy Cactus converter | ✅ Yes, with Happy Cactus converter |
-| Plain Hall | ✅ Directly works, no converter required | ✅ Directly works, no converter required | ❌ (but supported soon on a new converter variant!) |
-| AK-protocol Hall | ❌ | ❌ | ✅ Stock E90 sensors |
+| Plain Hall | ✅ Directly works, no converter required | ✅ Directly works, no converter required | ✅ With Happy Cactus converter, only "Switchable Hall/VR" version |
+| AK-protocol Hall | ❌ | ❌ | ✅ Stock BMW E90 sensors directly work |
 
 ## Sensor Types
 
