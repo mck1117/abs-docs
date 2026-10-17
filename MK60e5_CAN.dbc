@@ -105,19 +105,17 @@ BO_ 690 WHEEL_BRAKE_PRESSURES: 8 DSC
 
 BO_ 414 ST_DSC: 8 DSC
  SG_ BRP : 48|8@1+ (1,0) [0|0] "bar" Vector__XXX
- SG_ ST_BRP : 40|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BrakeSwitch : 40|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_DCRN_AVL : 32|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_DSC : 10|3@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_CLCTR : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BrakeSwitch : 46|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BrakeApplied : 46|2@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ST_ABS : 8|2@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 416 SPEED: 8 DSC
  SG_ V_VEH : 0|12@1+ (0.1,0) [0.1|350] "km/h"  DSC
  SG_ ST_VEH_DVCO : 12|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CHKSM_V : 56|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ANGV_YAW_DSC : 40|12@1- (0.05,0) [0|0] "deg/s" Vector__XXX
- SG_ ALIV_V : 52|4@1+ (1,0) [0|0] "" Vector__XXX
  SG_ ACLN_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.175|51.175] "m/s2" Vector__XXX
  SG_ ACLN_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.175|51.175] "m/s2"  DSC
 
@@ -136,17 +134,21 @@ CM_ BO_ 422 "";
 CM_ BO_ 690 "";
 CM_ BO_ 414 "";
 CM_ SG_ 414 BRP "Brake Pressure";
-CM_ SG_ 414 ST_BRP "State brake pressure
+CM_ SG_ 414 BrakeSwitch "State brake pressure
 ";
 CM_ SG_ 414 ST_DCRN_AVL "status deceleration actual-value:";
 CM_ BO_ 416 "";
-CM_ SG_ 416 V_VEH "vehicle speed";
+CM_ SG_ 416 V_VEH "vehicle speed, average of front wheel speeds";
+CM_ SG_ 416 ANGV_YAW_DSC "yaw rate from yaw sensor";
+CM_ SG_ 416 ACLN_VEH_LN_DSC "longitudinal accel from front wheels, NOT yaw sensor";
+CM_ SG_ 416 ACLN_VEH_ACRO_DSC "lateral accel from yaw sensor";
 CM_ BO_ 206 "";
 VAL_ 884 ST_WHL_TOL 2 "SIGNAL INVALID" 1 "ADJUSTMENT DONE" 0 "ADJUSTMENT NOT DONE" ;
-VAL_ 414 ST_BRP 3 "Signal Invalid" 2 "No Statement Possible" 1 "Brake Pressure Present" 0 "No Brake Pressure" ;
+VAL_ 414 BrakeSwitch 0 "Off" 1 "On" 2 "SwitchFault" 3 "Invalid" ;
 VAL_ 414 ST_DCRN_AVL 3 "HBA Intervention" 1 "DCC Intervention" 15 "signal invalid" 2 "EMF Intervention" 0 "no requirement" ;
-VAL_ 414 ST_DSC 7 "SIGNAL INVALID" 6 "UNDER VOLTAGE" 5 "ABS FAULT" 4 "DTC / MDM" 3 "reserved" 2 "DSC FAULT" 1 "DSC OFF" 0 "DSC ON" ;
+VAL_ 414 ST_DSC 0 "DSC OK" 1 "DSC Off" 2 "DSC Fault" 3 "Steer Angle Invalid" 4 "DTC / M Mode" 5 "ABS FAULT" 6 "Startup / Sensor system problem" 7 "SIGNAL INVALID" ;
 VAL_ 414 ST_CLCTR 64 "DYNO_ACTIVE" 32 "EBV_REGULATION" 0 "no regulation" 255 "signal invalid" 16 "msr regulation" 8 "hba regulation" 4 "DSC/TCS regulation" 2 "ASR regulation" 1 "abs regulation" ;
-VAL_ 414 ST_ABS 1 "Fallback level" 2 "Malfunction" 3 "Invalid signal" 0 "Order" ;
-VAL_ 416 ST_VEH_DVCO 7 "signal invalid" 3 "vehicle moves, direction n/a" 2 "moves backward, FL/FR backward" 1 "moves forward, FL/FR forward" 0 "vehicle standing" ;
+VAL_ 414 BrakeApplied 0 "NotBraking" 1 "Braking" 2 "SwitchInvalid" 3 "SwitchAndPressureInvalid" ;
+VAL_ 414 ST_ABS 0 "Normal" 1 "Fallback level" 2 "Malfunction" 3 "Invalid signal" ;
+VAL_ 416 ST_VEH_DVCO 0 "vehicle standing" 1 "moves forward, FL/FR forward" 2 "moves backward, FL/FR backward" 3 "moving, direction unknown" 7 "signal invalid" ;
 
