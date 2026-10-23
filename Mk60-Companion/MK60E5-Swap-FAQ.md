@@ -17,7 +17,7 @@ This page assumes:
 |--|--|
 | M3 or non-M? | Both work. The M3 lets the tyres work harder before it steps in and keeps more rear brake. The non-M steps in a bit earlier, is more careful with the rear axle, and can be coded for smaller brakes. |
 | Smaller tyres than an E90? | That's normal for a swap, and it makes the controller read fast. Work out the speed factor S ([below](#tyre-size-and-tooth-count-the-speed-factor)). Up to about 3% fast you won't notice it. Beyond 10%, ABS gets clearly worse, and grippy cars hit a braking ceiling sooner. |
-| Different front and rear (stagger)? | Keep the front-to-rear mismatch under about 1.5%, and treat 3% as the limit. Larger mismatches make one axle react early or late in ABS. At 25% or more the controller flags wheel speed sensor faults. |
+| Different front and rear (stagger)? | Keep the front-to-rear mismatch under about 1.5%. The M3 software also handles rear tyres 1.5–3% bigger than the fronts, like the stock M3. Above 3%, or with bigger fronts, one axle reacts early or late in ABS. At 25% or more the controller flags wheel speed sensor faults. [Details](#different-front-and-rear-stagger-mixed-tyres-mixed-tooth-counts). |
 | FWD? | Works. For performance driving, the thing to understand is the select-low rear axle under trail braking, especially when the inside rear lifts. |
 | Sensor cluster without a steering sensor? | Almost no ABS benefit. It avoids some fault codes and puts yaw and acceleration on CAN for logging. |
 | Mass, CG, weight distribution? | Not inputs. Get the hydraulic brake bias right. Brake torque per bar, wheel inertia and caliper fluid volume matter more. |
@@ -93,6 +93,7 @@ Both use the same control loop: the same release, hold and reapply logic and the
 | Vehicle variant coding | Selects the ABS deceleration thresholds. The GTS variants are the most permissive: 1.40 g below 60 km/h, and deeper thresholds above 150 km/h. | No effect on ABS. |
 | Caliper model (coding) | Two choices, M3 and M3 GTS, both soft. | Six front and five rear choices, up to about 1.5× stiffer than the M3's ([table](#caliper-fluid-volume)). |
 | Reference tyre (fixed, not codable) | 2073 mm rolling circumference, 48 teeth | 2000 mm rolling circumference, 48 teeth |
+| Built-in stagger allowance | Yes: rear tyres 1.5–3% bigger than the fronts are fully corrected once learned ([stagger](#different-front-and-rear-stagger-mixed-tyres-mixed-tooth-counts)) | None |
 | Pump | Normal | Runs longer during ABS stops. This does not change how much slip ABS allows. |
 
 Which one to use:
@@ -171,21 +172,39 @@ The front and rear axles use the same distance per tooth. Any front-to-rear diff
 mismatch = (larger S / smaller S) − 1
 ```
 
-The axle with bigger tyres or fewer teeth reads slower. In ABS, one axle ends up reading a false slip about the size of the mismatch:
+The axle with bigger tyres or fewer teeth reads slower. Most staggered cars have bigger rear tyres, so the fronts read fast.
 
-- At first, the **slower-reading axle** looks like it is slipping when it isn't, so ABS releases it early.
-- **Self-learning:** while you drive steadily, the controller learns tyre corrections. It applies them to its car speed estimate but not to the slip it measures for each wheel. Once it has learned, it lines up with the slower-reading axle. The **faster-reading axle** then has to slip that much more for real before ABS reacts. Only about 3% is remembered from one drive to the next.
+### What the controller does about it
 
-| Bigger tyres on | Early (unlearned) | Later (learned) |
+While you drive steadily (not braking), the controller learns a correction for each wheel so that all four agree with the slowest one. That correction has limits:
+
+- **It lines up the car speed estimate, but most ABS slip checks still use the uncorrected wheel speeds.** So on its own, learning moves the error from one axle to the other instead of removing it.
+- **The M3 software has one exception, built for the stock M3's own stagger.** The stock M3 runs rear tyres about 2.4% bigger than the fronts on a reference tyre that is the same front and rear. When it has learned that the fronts read **1.5–3% faster** than the rears, and each axle's left and right wheels agree within 0.5%, it switches the front ABS slip over to the corrected speeds. The rears are the slowest wheels and need no correction, so all four wheels are then effectively corrected.
+- **The non-M software has no such exception.** Its ABS slip always uses the uncorrected speeds.
+- Only about 3% of the learned correction is kept from one drive to the next. The rest is relearned once you are driving steadily, which usually takes seconds rather than minutes.
+- Right after power-on, the M3 front correction stays off until the controller is confident in what it has learned. We haven't measured how long that takes.
+
+### What to expect (bigger rear tyres)
+
+| Mismatch | M3 software | Non-M software |
 |--|--|--|
-| **Rear** (common RWD stagger) | Rears release early. Select-low drops both, so you lose rear braking: stable, but longer stops. | Fronts lock deeper before the first release, so the car briefly loses steering at the start of hard braking. |
-| **Front** | Fronts release early, so stops are longer. | Rears lock deeper before the first release, risking instability. |
+| under 1.5% | Fine. A small offset, which BMW's calibration accepts. | Fine. |
+| 1.5–3% | **Corrected.** This is what the M3 software was designed for. | Fronts lock slightly deeper before the first release. Usable. |
+| over 3% | Fronts lock deeper before the first release, so the car briefly loses steering at the start of hard braking. At the start of a drive, the rears may also release early (the "unlearned" case below). | Same. |
 
-Real example: a car with 3.3% bigger rear tyres had rear-only ABS events at about 1.1 g on track, with no real rear slip.
+Before the controller has learned (or when the mismatch is more than it remembers between drives), the error goes the other way: the slower-reading axle looks like it is slipping when it isn't, and ABS releases it early. With bigger rear tyres, select-low then drops both rears, so you lose rear braking. That is stable, but stops are longer.
+
+Real example: a car on M3 software with 3.3% bigger rear tyres, just outside the window, had rear-only ABS events at about 1.1 g on track, with no real rear slip.
+
+**Bigger front tyres** are never corrected, on either software. Before learning the fronts release early (longer stops). After learning the rears lock deeper before the first release, which risks instability. Avoid it.
 
 A mismatch of 25% or more above 40 km/h (50% below 20 km/h) is flagged as a wheel speed sensor fault (5Dx5 or 5Dx3).
 
-**Recommendation:** match mm per tooth front to rear within about 1.5%, and treat 3% as the limit. Choose tone rings or tyre sizes to make that work.
+**Recommendation:**
+
+- **Either software:** match mm per tooth front to rear within about 1.5%.
+- **M3 software only:** rear tyres 1.5–3% bigger than the fronts (in mm per tooth) also work well. Aim for the middle, about 2–2.5%. The left and right tyres on each axle should match closely (same size, similar wear and pressure), or the correction switches off.
+- Never more than 3%, and never bigger fronts. Choose tone rings or tyre sizes to make that work.
 
 ## What does installing the sensor cluster get you?
 
