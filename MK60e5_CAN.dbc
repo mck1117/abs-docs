@@ -103,6 +103,13 @@ BO_ 690 WHEEL_BRAKE_PRESSURES: 8 DSC
  SG_ BRP_WHL_FRH : 8|8@1+ (1,0) [0|0] "bar" Vector__XXX
  SG_ BRP_WHL_FLH : 0|8@1+ (1,0) [0|0] "bar" Vector__XXX
 
+BO_ 691 LONG_ACCEL_RAW: 5 DSC
+ SG_ CHK_2B3 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ ALIV_2B3 : 8|4@1+ (1,0) [0|14] "" Vector__XXX
+ SG_ ACLN_VEH_LN_RAW : 12|12@1+ (0.025,-51.2) [-51.2|51.15] "m/s2" Vector__XXX
+ SG_ ACLN_VEH_LN_OFFS : 24|12@1+ (0.025,-51.2) [-2.35|2.35] "m/s2" Vector__XXX
+ SG_ ST_ACLN_VEH_LN : 36|2@1+ (1,0) [0|3] "" Vector__XXX
+
 BO_ 414 ST_DSC: 8 DSC
  SG_ BRP : 48|8@1+ (1,0) [0|0] "bar" Vector__XXX
  SG_ BrakeSwitch : 40|2@1+ (1,0) [0|0] "" Vector__XXX
@@ -132,6 +139,12 @@ CM_ SG_ 884 ST_WHL_TOL "";
 CM_ SG_ 884 WHL_TOL_FLH "% = (100% + WHL_TOL_FLH)";
 CM_ BO_ 422 "";
 CM_ BO_ 690 "";
+CM_ BO_ 691 "Raw longitudinal accelerometer (F-CAN sensor cluster 0x0D1 bytes 4-5) plus its learned zero offset. 50 ms. Handlers 0x7B7F4/0x7B83C/0x7B8B6/0x7B8E2/0x7D7D8. Bits 4.6-4.7 unused (always 1).";
+CM_ SG_ 691 CHK_2B3 "checksum, can_tx_checksum8 0x7D24C: S = sum(payload) + CAN id, out = low8(S + S>>8)";
+CM_ SG_ 691 ALIV_2B3 "alive counter 0..14 (0x40471D low nibble)";
+CM_ SG_ 691 ACLN_VEH_LN_RAW "measured longitudinal specific force from the accelerometer: 0x404A00 unfiltered, NO offset correction, includes road gradient. Firmware: raw*201/512 + 2048, clamp 0..4094. 1 mg/LSB source assumed (same as the lateral channel), so 1 bit = 0.02498 m/s2. Not the same as ACLN_VEH_LN_DSC on 0x1A0 (front-wheel derived).";
+CM_ SG_ 691 ACLN_VEH_LN_OFFS "learned accelerometer zero offset 0x4049FD (s8, 2 mg/LSB, clamp +/-119 = +/-0.238 g; DSC uses offset*20 at 0x404A04). Firmware: offs*201/256 + 2048. Same scale as ACLN_VEH_LN_RAW: corrected ax = ACLN_VEH_LN_RAW - ACLN_VEH_LN_OFFS.";
+CM_ SG_ 691 ST_ACLN_VEH_LN "status of the raw ax signal (ax_signal_get(3) out[3]): 2 when b5 or b6 (invalid) is set, else 0. Value 1 needs b2 clear, which this path never produces.";
 CM_ BO_ 414 "";
 CM_ SG_ 414 BRP "Brake Pressure";
 CM_ SG_ 414 BrakeSwitch "State brake pressure
@@ -144,6 +157,9 @@ CM_ SG_ 416 ACLN_VEH_LN_DSC "longitudinal accel from front wheels, NOT yaw senso
 CM_ SG_ 416 ACLN_VEH_ACRO_DSC "lateral accel from yaw sensor";
 CM_ BO_ 206 "";
 VAL_ 884 ST_WHL_TOL 2 "SIGNAL INVALID" 1 "ADJUSTMENT DONE" 0 "ADJUSTMENT NOT DONE" ;
+VAL_ 691 ACLN_VEH_LN_RAW 4095 "signal invalid" ;
+VAL_ 691 ACLN_VEH_LN_OFFS 4095 "signal invalid" ;
+VAL_ 691 ST_ACLN_VEH_LN 0 "valid" 1 "not used" 2 "invalid" ;
 VAL_ 414 BrakeSwitch 0 "Off" 1 "On" 2 "SwitchFault" 3 "Invalid" ;
 VAL_ 414 ST_DCRN_AVL 3 "HBA Intervention" 1 "DCC Intervention" 15 "signal invalid" 2 "EMF Intervention" 0 "no requirement" ;
 VAL_ 414 ST_DSC 0 "DSC OK" 1 "DSC Off" 2 "DSC Fault" 3 "Steer Angle Invalid" 4 "DTC / M Mode" 5 "ABS FAULT" 6 "Startup / Sensor system problem" 7 "SIGNAL INVALID" ;
