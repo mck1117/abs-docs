@@ -101,7 +101,7 @@ Which one to use:
 - **High-grip car with big brakes, where you want maximum deceleration:** M3 software, coded to a GTS variant.
 - **Small brakes, or calipers that take much less fluid than the M3's:** non-M software, coded to the closest caliper ([why this matters](#caliper-fluid-volume)).
 
-These differences come from the software calibrations. Limited real-world, back to back A/B testing has been on the same car. Either controller is a huge improvement over no ABS or 
+These differences come from the software calibrations. Limited real-world, back to back A/B testing has been performed on the same car. Either controller is a huge improvement over no ABS or the ABS on an older car.
 
 ## Tyre size and tooth count: the speed factor
 
