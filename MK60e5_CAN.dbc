@@ -1,7 +1,7 @@
 VERSION ""
 
 
-NS_ : 
+NS_ :
 	NS_DESC_
 	CM_
 	BA_DEF_
@@ -36,135 +36,140 @@ BS_:
 BU_: DSC
 
 
-VAL_TABLE_ DSC_CC_ID 357 "MDM activated." 354 "Start-off assistance inactive!" 353 "Brakes overheated!" 352 "Brakes too hot!" 336 "Yellow TPMS light." 334 "EOL Standardize RPA." 237 "DSC Failure" 236 "ABS and DSC failure." 215 "Yellow DSC light." 184 "DTC activated," 74 "Brake fluid low!" 71 "Replace Brake pads!" 63 "Tyre failure!" 50 "Flat tyre monitor failed." 42 "EBV/CBC failure." 36 "DSC deactivated!" 35 "DSC failed." 24 "DBC failure." ;
-VAL_TABLE_ ST_DSC_CC_MSG 1 "TURN DSC CC MSG ON" 0 "TURN DSC CC MSG OFF" ;
-VAL_TABLE_ HABR 2 "ON" 1 "OFF" ;
-VAL_TABLE_ ST_MOD_DKG 15 "INVALID" 13 "TCT_ES" 12 "TQ_DEC" 6 "N_REGULATION" 4 "TCT_INTV_INC" 3 "TCT_INTV_DEC" 2 "Creep" 0 "No Intervention" ;
-VAL_TABLE_ ST_BRP 3 "Signal Invalid" 2 "No Statement Possible" 1 "Brake Pressure Present" 0 "No Brake Pressure" ;
-VAL_TABLE_ ST_WHL_TOL 2 "SIGNAL INVALID" 1 "ADJUSTMENT DONE" 0 "ADJUSTMENT NOT DONE" ;
-VAL_TABLE_ ST_EDC_MODE 3 "Sport +" 1 "Sport" 0 "Comfort" ;
-VAL_TABLE_ MFUNC_LWK 16384 "Description for the value '0x1F00'" 4096 "Recirculate" 256 "Voice Command" 32 "Down" 22 "Up" 8 "Volume -" 4 "Volume +" 1 "Telephone" 0 "No Button Pressed" ;
-VAL_TABLE_ INTERIOR_LIGHTS 9 "INTERIOR & EXTERIOR LIGHTS ON" 8 "INTERIOR LIGHTS ON" ;
-VAL_TABLE_ ST_HEADLIGHTS 7 "Description for the value '0x6'" 5 "DIP BEAM" 4 "PARK" ;
-VAL_TABLE_ vtST_VEH_DVCO 7 "signal invalid" 3 "vehicle moves, direction n/a" 2 "moves backward, FL/FR backward" 1 "moves forward, FL/FR forward" 0 "vehicle standing" ;
-VAL_TABLE_ vtOP_PUBU_CCTR_ACC 127 "signal invalid" 64 "tap axial, resume" 16 "tap up / down, Off" 8 "overpress backward, lower step" 4 "tap backwards, set / retard" 2 "overpress forward, higher step" 1 "tap forward, set / accelerate" 0 "nothing to do" ;
-VAL_TABLE_ vtST_LDST_GEN 3 "signal invalid" 2 "Utilization rate = 100%" 1 "50% <= Utilization rate < 100%" 0 "0% <= Utilization rate < 50%" ;
-VAL_TABLE_ vtST_GEN 3 "signal invalid" 2 "defective" 1 "in igh-temperature cutoff" 0 "OK" ;
-VAL_TABLE_ vtST_KL 2 "signal invalid" 1 "terminal on" 0 "temrinal off" ;
-VAL_TABLE_ vtST_RCPT_ENG_X 2 "timeout error" 1 "plausibility/activity error" 0 "status ok" ;
-VAL_TABLE_ vtST_TORQ_AVL 15 "signal invalid" 3 "intervention ign & inj not exec." 2 "intervention inj not executed" 1 "intervention ign not executed" 0 "intervention request executed" ;
-VAL_TABLE_ vtST_CTCTR_V 11 "pedal kickdown" 10 "pedal transgress" 9 "pedal pressed" 8 "pedal not pressed" 7 "cc regulation, speed up" 6 "cc regulation, recall" 5 "cc regulation, constant" 4 "cc regulation, retard" 1 "acc regulation, ped pressed" 0 "acc regulation, ped not pressed" ;
-VAL_TABLE_ vtST_CCLT 3 "signal invalid" 2 "closed" 1 "controlled" 0 "disengaged" ;
-VAL_TABLE_ vtST_GR_GRB 15 "signal invalid" 10 "6. gear" 9 "5. gear" 8 "4. gear" 7 "3. gear" 6 "2. gear" 5 "1. gear" 4 "reserved" 3 "P" 2 "R" 1 "N" 0 "reserved" ;
-VAL_TABLE_ vtST_WALI_ENG 3 "signal invalid" 1 "yellow" 0 "off" ;
-VAL_TABLE_ vtST_INTF_CCTRA_KL 4 "error in fgr" 2 "error in acc module" 1 "error in kombi" 0 "okay" ;
-VAL_TABLE_ vtST_UN_V_SPDM 3 "signal invalid" 1 "mph" 0 "km/h" ;
-VAL_TABLE_ vtST_ACC_MOD_DME 7 "signal invalid" 6 "reserved" 5 "driver has stepped over" 4 "brake active" 3 "reserved" 2 "normal" 1 "stand by" 0 "passive" ;
-VAL_TABLE_ vtST_ACC_SWO_SYS_DME 3 "signal invalid" 2 "system okay" 1 "system shutdown, error detected" 0 "reserved" ;
-VAL_TABLE_ vtST_CLCTR 0 "no regulation" 255 "signal invalid" 16 "msr regulation" 8 "hba regulation" 4 "dsc regulation" 2 "asc regulation" 1 "abs regulation" ;
-VAL_TABLE_ vtST_DCRN_AVL 15 "signal invalid" 2 "requirement EMF accepted" 0 "no requirement" ;
-VAL_TABLE_ vtST_DSC 7 "signal invalid" 6 "under voltage" 5 "reserved" 4 "traction mode" 3 "reserved" 2 "faulty" 1 "passive" 0 "all clear" ;
-VAL_TABLE_ vtRPM_IDLG_SPEC 3 "signal invalid" 1 "increased idle rpm required" 0 "no requirement on idle rpm" ;
-VAL_TABLE_ vtSTWA 32769 "right stop" 32767 "left stop" 0 "straight-ahead position" ;
-VAL_TABLE_ vtOBD_ERR 3 "signal invalid" 1 "OBD-relevant error occurred" 0 "no OBD-relevant error present" ;
-VAL_TABLE_ vtST_OTMP_GRB 3 "signal invalid" 2 "cooling stage 2" 1 "cooling stage 1" 0 "no requirement" ;
-VAL_TABLE_ vtST_SWO_KL_30 3 "signal invalid" 2 "shutdown by the PM done" 1 "no shutdown by the PM done" 0 "reserved" ;
-VAL_TABLE_ vtST_BTSW 3 "signal invalid" 1 "battery main switch opens in 5s" 0 "battery main switch closed" ;
-VAL_TABLE_ vtCTR_SLCK 3 "signal invalid" 2 "requirement Shiftlock" 1 "no requirement Shiftlock" 0 "not allowed" ;
-VAL_TABLE_ vtST_SW_WAUP 3 "signal invalid" 2 "EGS forced switching active" 1 "engine warm" 0 "warming up" ;
-VAL_TABLE_ vtST_ENG_RUN 3 "signal invalid" 2 "engine running" 1 "engine starting" 0 "engine off" ;
-VAL_TABLE_ vtST_IDLG_ENG 3 "signal invalid" 1 "not idling" 0 "idling" ;
-VAL_TABLE_ vtRPM_ENG_ERR 3 "signal invalid" 1 "speed sensor defective" 0 "signal RPM_ENG correct" ;
-VAL_TABLE_ vtST_INFS 1 "thrust cutoff active" 0 "no action" ;
-VAL_TABLE_ vtST_SW_LEV_RPM 1 "idle speed < the threshold value" 0 "idle speed > the threshold value" ;
-VAL_TABLE_ vtST_TORQ_TAR 3 "invalid signal" 2 "decrease torque" 1 "increase torque" 0 "no actual torque request" ;
-VAL_TABLE_ DOOR_FLAP_STA 1 "Opened" 0 "Closed" ;
-VAL_TABLE_ BOOT_BONNET_STATUS 4 "Bonnet opened" 1 "Boot opened" ;
-VAL_TABLE_ DR_STATUS 64 "RR door opened" 16 "RL door opened" 4 "FR door opened" 1 "FL door opened" ;
-VAL_TABLE_ GEAR_SELECTION 29699 "D" 27136 "Idle" 22786 "Change to N, down" 18177 "Change to N, up" 11524 "R" 80 "P" ;
+BO_ 196 SteeringAngle: 7 DSC
+ SG_ SteeringWheelAngle : 0|16@1- (0.043737,0) [-1433|1433] "deg" Vector__XXX
+ SG_ SteeringAngleStatus : 16|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ SteeringWheelVelocity : 24|16@1- (0.043737,0) [-1433|1433] "deg/s" Vector__XXX
+
+BO_ 206 WheelSpeeds: 8 DSC
+ SG_ WheelSpeedFL : 0|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
+ SG_ WheelSpeedFR : 16|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
+ SG_ WheelSpeedRL : 32|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
+ SG_ WheelSpeedRR : 48|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
+
+BO_ 414 DSC_Status: 8 DSC
+ SG_ AbsActiveFront : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ TcsActive : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ YawTorqueActive : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DscActive : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ MsrActive : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AbsActiveRearOnly : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ AbsStatus : 8|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ DscStatus : 10|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ TorqueInterventionActive : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ HillHoldCondition : 26|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ BrakeSwitch : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ BrakeApplied : 46|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ MasterCylPressure : 48|8@1+ (1,0) [0|254] "bar" Vector__XXX
+
+BO_ 416 VehicleDynamics: 8 DSC
+ SG_ VehicleSpeed : 0|12@1+ (0.1,0) [0|300] "km/h" Vector__XXX
+ SG_ DriveDirection : 12|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ AccelLongWheel : 16|12@1- (0.0245166,0) [-9.81|9.81] "m/s2" Vector__XXX
+ SG_ AccelLat : 28|12@1- (0.02501,0) [-51.2|51.2] "m/s2" Vector__XXX
+ SG_ YawRate : 40|12@1- (0.05,0) [-90|90] "deg/s" Vector__XXX
+ SG_ AliveCounter : 52|4@1+ (1,0) [0|14] "" Vector__XXX
+
+BO_ 419 AccelLongSensor: 5 DSC
+ SG_ AccelLongRaw : 0|12@1- (0.01,0) [-20.47|20.47] "m/s2" Vector__XXX
+ SG_ AccelLongOffset : 12|12@1- (0.01,0) [-2.34|2.34] "m/s2" Vector__XXX
+ SG_ AccelLongRawStatus : 24|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AccelLongOffsetStatus : 26|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ AliveCounter : 28|4@1+ (1,0) [0|14] "" Vector__XXX
+
+BO_ 690 BrakePressures: 8 DSC
+ SG_ BrakePressureFL : 0|8@1+ (1,0) [0|254] "bar" Vector__XXX
+ SG_ BrakePressureFR : 8|8@1+ (1,0) [0|254] "bar" Vector__XXX
+ SG_ BrakePressureRL : 16|8@1+ (1,0) [0|254] "bar" Vector__XXX
+ SG_ BrakePressureRR : 24|8@1+ (1,0) [0|254] "bar" Vector__XXX
+ SG_ BrakePrefillState : 56|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ DiscDryingState : 59|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 884 TyreTolerance: 5 DSC
+ SG_ TyreTrimFL : 0|8@1- (0.1,0) [-12.7|0] "%" Vector__XXX
+ SG_ TyreTrimFR : 8|8@1- (0.1,0) [-12.7|0] "%" Vector__XXX
+ SG_ TyreTrimRL : 16|8@1- (0.1,0) [-12.7|0] "%" Vector__XXX
+ SG_ TyreTrimRR : 24|8@1- (0.1,0) [-12.7|0] "%" Vector__XXX
+ SG_ TyreTrimStatus : 32|2@1+ (1,0) [0|3] "" Vector__XXX
 
 
 
-BO_ 884 WHEEL_TOLERANCE_ADJUSTMENT: 5 DSC
- SG_ ST_WHL_TOL : 32|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WHL_TOL_RRH : 24|8@1- (0.1,0) [0|0] "%" Vector__XXX
- SG_ WHL_TOL_RLH : 16|8@1- (0.1,0) [-12.8|12.7] "%" Vector__XXX
- SG_ WHL_TOL_FRH : 8|8@1- (0.1,0) [0|0] "%" Vector__XXX
- SG_ WHL_TOL_FLH : 0|8@1- (0.1,1) [-11.8|13.7] "%" Vector__XXX
-
-BO_ 422 DISTANCE: 8 DSC
- SG_ DISTANCE_4_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DISTANCE_2_3 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DISTANCE_1_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 690 WHEEL_BRAKE_PRESSURES: 8 DSC
- SG_ BRP_WHL_RRH : 24|8@1+ (1,0) [0|0] "bar" Vector__XXX
- SG_ BRP_WHL_RLH : 16|8@1+ (1,0) [0|0] "bar" Vector__XXX
- SG_ BRP_WHL_FRH : 8|8@1+ (1,0) [0|0] "bar" Vector__XXX
- SG_ BRP_WHL_FLH : 0|8@1+ (1,0) [0|0] "bar" Vector__XXX
-
-BO_ 691 LONG_ACCEL_RAW: 5 DSC
- SG_ CHK_2B3 : 0|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ ALIV_2B3 : 8|4@1+ (1,0) [0|14] "" Vector__XXX
- SG_ ACLN_VEH_LN_RAW : 12|12@1+ (0.025,-51.2) [-51.2|51.15] "m/s2" Vector__XXX
- SG_ ACLN_VEH_LN_OFFS : 24|12@1+ (0.025,-51.2) [-2.35|2.35] "m/s2" Vector__XXX
- SG_ ST_ACLN_VEH_LN : 36|2@1+ (1,0) [0|3] "" Vector__XXX
-
-BO_ 414 ST_DSC: 8 DSC
- SG_ BRP : 48|8@1+ (1,0) [0|0] "bar" Vector__XXX
- SG_ BrakeSwitch : 40|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_DCRN_AVL : 32|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_DSC : 10|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_CLCTR : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BrakeApplied : 46|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ST_ABS : 8|2@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 416 SPEED: 8 DSC
- SG_ V_VEH : 0|12@1+ (0.1,0) [0.1|350] "km/h"  DSC
- SG_ ST_VEH_DVCO : 12|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ANGV_YAW_DSC : 40|12@1- (0.05,0) [0|0] "deg/s" Vector__XXX
- SG_ ACLN_VEH_LN_DSC : 16|12@1- (0.025,0) [-51.175|51.175] "m/s2" Vector__XXX
- SG_ ACLN_VEH_ACRO_DSC : 28|12@1- (0.025,0) [-51.175|51.175] "m/s2"  DSC
-
-BO_ 206 WHEEL_SPEEDS: 8 DSC
- SG_ V_WHL_RRH : 48|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
- SG_ V_WHL_RLH : 32|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
- SG_ V_WHL_FRH : 16|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
- SG_ V_WHL_FLH : 0|16@1- (0.0625,0) [-300|300] "km/h" Vector__XXX
-
-
-
-CM_ BO_ 884 "";
-CM_ SG_ 884 ST_WHL_TOL "";
-CM_ SG_ 884 WHL_TOL_FLH "% = (100% + WHL_TOL_FLH)";
-CM_ BO_ 422 "";
-CM_ BO_ 690 "";
-CM_ BO_ 691 "Raw longitudinal accelerometer (F-CAN sensor cluster 0x0D1 bytes 4-5) plus its learned zero offset. 50 ms. Handlers 0x7B7F4/0x7B83C/0x7B8B6/0x7B8E2/0x7D7D8. Bits 4.6-4.7 unused (always 1).";
-CM_ SG_ 691 CHK_2B3 "checksum, can_tx_checksum8 0x7D24C: S = sum(payload) + CAN id, out = low8(S + S>>8)";
-CM_ SG_ 691 ALIV_2B3 "alive counter 0..14 (0x40471D low nibble)";
-CM_ SG_ 691 ACLN_VEH_LN_RAW "measured longitudinal specific force from the accelerometer: 0x404A00 unfiltered, NO offset correction, includes road gradient. Firmware: raw*201/512 + 2048, clamp 0..4094. 1 mg/LSB source assumed (same as the lateral channel), so 1 bit = 0.02498 m/s2. Not the same as ACLN_VEH_LN_DSC on 0x1A0 (front-wheel derived).";
-CM_ SG_ 691 ACLN_VEH_LN_OFFS "learned accelerometer zero offset 0x4049FD (s8, 2 mg/LSB, clamp +/-119 = +/-0.238 g; DSC uses offset*20 at 0x404A04). Firmware: offs*201/256 + 2048. Same scale as ACLN_VEH_LN_RAW: corrected ax = ACLN_VEH_LN_RAW - ACLN_VEH_LN_OFFS.";
-CM_ SG_ 691 ST_ACLN_VEH_LN "status of the raw ax signal (ax_signal_get(3) out[3]): 2 when b5 or b6 (invalid) is set, else 0. Value 1 needs b2 clear, which this path never produces.";
-CM_ BO_ 414 "";
-CM_ SG_ 414 BRP "Brake Pressure";
-CM_ SG_ 414 BrakeSwitch "State brake pressure
-";
-CM_ SG_ 414 ST_DCRN_AVL "status deceleration actual-value:";
-CM_ BO_ 416 "";
-CM_ SG_ 416 V_VEH "vehicle speed, average of front wheel speeds";
-CM_ SG_ 416 ANGV_YAW_DSC "yaw rate from yaw sensor";
-CM_ SG_ 416 ACLN_VEH_LN_DSC "longitudinal accel from front wheels, NOT yaw sensor";
-CM_ SG_ 416 ACLN_VEH_ACRO_DSC "lateral accel from yaw sensor";
-CM_ BO_ 206 "";
-VAL_ 884 ST_WHL_TOL 2 "SIGNAL INVALID" 1 "ADJUSTMENT DONE" 0 "ADJUSTMENT NOT DONE" ;
-VAL_ 691 ACLN_VEH_LN_RAW 4095 "signal invalid" ;
-VAL_ 691 ACLN_VEH_LN_OFFS 4095 "signal invalid" ;
-VAL_ 691 ST_ACLN_VEH_LN 0 "valid" 1 "not used" 2 "invalid" ;
-VAL_ 414 BrakeSwitch 0 "Off" 1 "On" 2 "SwitchFault" 3 "Invalid" ;
-VAL_ 414 ST_DCRN_AVL 3 "HBA Intervention" 1 "DCC Intervention" 15 "signal invalid" 2 "EMF Intervention" 0 "no requirement" ;
-VAL_ 414 ST_DSC 0 "DSC OK" 1 "DSC Off" 2 "DSC Fault" 3 "Steer Angle Invalid" 4 "DTC / M Mode" 5 "ABS FAULT" 6 "Startup / Sensor system problem" 7 "SIGNAL INVALID" ;
-VAL_ 414 ST_CLCTR 64 "DYNO_ACTIVE" 32 "EBV_REGULATION" 0 "no regulation" 255 "signal invalid" 16 "msr regulation" 8 "hba regulation" 4 "DSC/TCS regulation" 2 "ASR regulation" 1 "abs regulation" ;
-VAL_ 414 BrakeApplied 0 "NotBraking" 1 "Braking" 2 "SwitchInvalid" 3 "SwitchAndPressureInvalid" ;
-VAL_ 414 ST_ABS 0 "Normal" 1 "Fallback level" 2 "Malfunction" 3 "Invalid signal" ;
-VAL_ 416 ST_VEH_DVCO 0 "vehicle standing" 1 "moves forward, FL/FR forward" 2 "moves backward, FL/FR backward" 3 "moving, direction unknown" 7 "signal invalid" ;
+CM_ "Mk60e5 DSC (M3, software 7846816A, unmodified) PT-CAN broadcast, trimmed for track logging. Checksums are left out; alive counters are included where they are useful.";
+CM_ BO_ 196 "Steering angle relayed from the F-CAN steering sensor (0x0C9), 10 ms. Only meaningful with a steering sensor fitted. Bytes 5-6 are constant.";
+CM_ SG_ 196 SteeringWheelAngle "Steering-wheel angle. Sign convention unverified.";
+CM_ SG_ 196 SteeringWheelVelocity "Steering-wheel angular velocity, relayed from a sub-channel of the sensor frame and held between updates. Same raw scaling as the angle.";
+CM_ SG_ 196 SteeringAngleStatus "Sensor status. 0 and 1 are passed through from the sensor; the meaning of 1 is a best guess.";
+CM_ BO_ 206 "Wheel speeds, 20 ms. Raw per-wheel speed: no tyre-tolerance trim, not vref. Reads 0 below about 0.6 km/h. Negative when the wheel's direction is latched as reverse (direction updates below 55 km/h only).";
+CM_ BO_ 414 "DSC/ABS status, 20 ms.";
+CM_ SG_ 414 AbsActiveFront "A front wheel is in an ABS cycle.";
+CM_ SG_ 414 TcsActive "Traction control (brake or engine) intervening.";
+CM_ SG_ 414 YawTorqueActive "Yaw control is requesting an engine torque cut.";
+CM_ SG_ 414 DscActive "DSC (yaw control) function active.";
+CM_ SG_ 414 MsrActive "MSR (engine drag torque control) active.";
+CM_ SG_ 414 AbsActiveRearOnly "A rear wheel is under ABS control and no front is (EBD-style rear control).";
+CM_ SG_ 414 AbsStatus "2 = ABS switched off by a fault reaction, or ABS lamp on with ABS degraded.";
+CM_ SG_ 414 DscStatus "First match wins, in order 2, 6, 3, 1, 4, else 0.";
+CM_ SG_ 414 TorqueInterventionActive "1 = yaw-control torque request, or TCS active with a large torque cut (latched).";
+CM_ SG_ 414 HillHoldCondition "1 = hill-start assist condition: driver pressure above threshold, car on a slope it can hold. Exact meaning (armed vs holding) unconfirmed.";
+CM_ SG_ 414 BrakeSwitch "Brake-light switch. Reads 3 (invalid) unless 0x130 (terminal status) is received with byte 0 bits 0-1 = 1.";
+CM_ SG_ 414 BrakeApplied "1 = brake switch on or any valid wheel pressure > 6 bar.";
+CM_ SG_ 414 MasterCylPressure "Master-cylinder (driver) pressure, integer bar, clamped 0..254.";
+CM_ BO_ 416 "Vehicle speed and body motion, 20 ms.";
+CM_ SG_ 416 VehicleSpeed "Mean of the two FRONT wheel speeds (not vref, no tyre trim). Clamped to 300 km/h.";
+CM_ SG_ 416 DriveDirection "From the front-wheel direction bits and the standstill detector.";
+CM_ SG_ 416 AccelLongWheel "Longitudinal accel derived from the FRONT wheel accelerations, not the accelerometer. 0.0025 g/bit, clamped +/-1 g, low-passed (1st-order IIR, alpha 1/32), so it lags. Free of road slope, but wrong under front wheel slip/lock.";
+CM_ SG_ 416 AccelLat "Lateral accel from the sensor cluster, offset-corrected. Sign unverified.";
+CM_ SG_ 416 YawRate "Yaw rate from the sensor cluster, offset-corrected, clipped to +/-90 deg/s. Sign unverified.";
+CM_ SG_ 416 AliveCounter "Steps every frame, 0..14 (15 skipped).";
+CM_ BO_ 419 "Longitudinal accelerometer, 20 ms. No offset-corrected sensor ax is broadcast: corrected = AccelLongRaw - AccelLongOffset (make it a math channel).";
+CM_ SG_ 419 AccelLongRaw "Raw accelerometer ax: unfiltered, no zero-offset correction, includes road gradient.";
+CM_ SG_ 419 AccelLongOffset "Learned accelerometer zero offset (+/-0.238 g max), same scale as AccelLongRaw.";
+CM_ SG_ 419 AccelLongRawStatus "Value 1 is never sent for the raw signal.";
+CM_ SG_ 419 AccelLongOffsetStatus "1 = offset probably not learned yet.";
+CM_ SG_ 419 AliveCounter "Steps every frame, 0..14 (15 skipped).";
+CM_ BO_ 690 "Wheel brake pressures and brake pre-fill state, 20 ms.";
+CM_ SG_ 690 BrakePressureFL "Measured/modelled wheel pressure, integer bar, clamped 0..254.";
+CM_ SG_ 690 BrakePrefillState "Brake pre-fill on fast throttle lift. 0 = not coded or inhibited, 1 = armed, 2 = active.";
+CM_ SG_ 690 DiscDryingState "Wet-disc drying (wiper-triggered). 0 = not coded or inhibited, 1 = armed, 2 = active.";
+CM_ BO_ 884 "Learned per-wheel tyre tolerance trims, 1 s. Factor applied to the wheel's speed = 1 + TyreTrim/100. Trims are normalised so the slowest-turning wheel is 0; a negative trim means that wheel turns faster by that much. Clamped at -12.7 %.";
+CM_ SG_ 884 TyreTrimStatus "0 after power-up; changes to 1 once the learner has adapted (typically after 1-2 km of driving).";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 196 10;
+BA_ "GenMsgCycleTime" BO_ 206 20;
+BA_ "GenMsgCycleTime" BO_ 414 20;
+BA_ "GenMsgCycleTime" BO_ 416 20;
+BA_ "GenMsgCycleTime" BO_ 419 20;
+BA_ "GenMsgCycleTime" BO_ 690 20;
+BA_ "GenMsgCycleTime" BO_ 884 1000;
+VAL_ 196 SteeringWheelAngle -32768 "Invalid" ;
+VAL_ 196 SteeringWheelVelocity -32768 "Invalid" ;
+VAL_ 196 SteeringAngleStatus 0 "Valid" 1 "NotCalibrated" 2 "SensorStatusInvalid" 3 "NoData" ;
+VAL_ 206 WheelSpeedFL -32768 "Invalid" ;
+VAL_ 206 WheelSpeedFR -32768 "Invalid" ;
+VAL_ 206 WheelSpeedRL -32768 "Invalid" ;
+VAL_ 206 WheelSpeedRR -32768 "Invalid" ;
+VAL_ 414 AbsStatus 0 "Normal" 2 "OffOrDegraded" ;
+VAL_ 414 DscStatus 0 "Normal" 1 "DscOff" 2 "Failed" 3 "SteeringAngleInvalid" 4 "ModeLamp_DTC_MDM" 6 "Initialising_SensorFault" ;
+VAL_ 414 TorqueInterventionActive 0 "Inactive" 1 "Active" ;
+VAL_ 414 HillHoldCondition 0 "Inactive" 1 "Active" ;
+VAL_ 414 BrakeSwitch 0 "Off" 1 "On" 2 "Fault" 3 "Invalid" ;
+VAL_ 414 BrakeApplied 0 "NotBraking" 1 "Braking" 2 "SwitchInvalid" 3 "NoWheelPressureValid" ;
+VAL_ 414 MasterCylPressure 255 "Invalid" ;
+VAL_ 416 VehicleSpeed 4095 "Invalid" ;
+VAL_ 416 DriveDirection 0 "Standstill" 1 "Forward" 2 "Reverse" 3 "MovingDirectionUnknown" 7 "Invalid" ;
+VAL_ 416 AccelLongWheel -2048 "Invalid" ;
+VAL_ 416 AccelLat -2048 "Invalid" ;
+VAL_ 416 YawRate -2048 "Invalid" ;
+VAL_ 419 AccelLongRaw -2048 "Invalid" ;
+VAL_ 419 AccelLongOffset -2048 "Invalid" ;
+VAL_ 419 AccelLongRawStatus 0 "Valid" 2 "Invalid" ;
+VAL_ 419 AccelLongOffsetStatus 0 "Valid" 1 "NotLearned" 2 "Invalid" ;
+VAL_ 690 BrakePressureFL 255 "Invalid" ;
+VAL_ 690 BrakePressureFR 255 "Invalid" ;
+VAL_ 690 BrakePressureRL 255 "Invalid" ;
+VAL_ 690 BrakePressureRR 255 "Invalid" ;
+VAL_ 690 BrakePrefillState 0 "OffOrInhibited" 1 "Armed" 2 "Active" ;
+VAL_ 690 DiscDryingState 0 "OffOrInhibited" 1 "Armed" 2 "Active" ;
+VAL_ 884 TyreTrimStatus 0 "NotLearned" 1 "Learned" ;
 
