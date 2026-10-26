@@ -149,10 +149,18 @@ In a hard stop with all four wheels working, the controller cannot work out the 
 max real deceleration it can follow ≈ 1.25 / S  (g)
 ```
 
-If the car actually brakes harder than that, the controller thinks the car is going faster than it is, sees slip that isn't there, and releases too much at the top of the stop. Keep the ceiling above your car's real braking limit with some margin:
+If the car brakes harder than that, the controller's speed estimate falls behind the real car, so it sees slip that isn't there. The error isn't there at the start of the stop. It builds the whole time the car brakes above the ceiling. Once it is large enough, ABS starts releasing, and for the rest of the stop the car brakes at about the ceiling, however much grip the tyres have.
+
+So exceeding the ceiling doesn't make the ABS misbehave. It caps your braking, and only after a while. What delays the cap:
+
+- **Shorter braking zones.** The error needs time to build. A short stop can end before the cap ever arrives. A long, big drop in speed is where it costs the most.
+- **Higher speed.** The error is judged as a share of the car's speed, so at high speed it takes longer to matter.
+- **A smooth brake apply.** Squeezing the pedal on over about half a second, instead of stabbing it, delays the cap, often past the end of the braking zone. In our model of a 1.5 g car braking for corners from a real track, a smooth apply was a few hundredths of a second faster per corner than a stab, even though the stab let the driver brake a few metres later. Without the ceiling, apply speed made almost no difference to lap time.
+
+Keep the ceiling above your car's real braking limit where you can:
 
 - Street tyres reach about 1.0–1.1 g. An S of up to about 1.1 is fine.
-- 200-treadwear tyres, R-compounds, slicks or aero can pass 1.2 g. That is at or above the ceiling even at S = 1.00, so expect some over-release at the top of the stop. A slightly slow reading (S of 0.97–1.00) helps here.
+- 200-treadwear tyres, R-compounds, slicks or aero can pass 1.2 g. That is at or above the ceiling even at S = 1.00, so expect the cap in long, hard stops. A slightly slow reading (S of 0.97–1.00) raises the ceiling a little. Reading fast lowers it: at S = 1.10 it is 1.14 g.
 
 ### Examples
 
@@ -161,7 +169,7 @@ If the car actually brakes harder than that, the controller thinks the car is go
 | 44 teeth, 1900 mm | M3 | 1.00 | correct | 1.25 g | ideal |
 | 48 teeth, 1990 mm | M3 | 1.04 | 4% fast | 1.20 g | fine for street |
 | 48 teeth, 1840 mm | non-M | 1.09 | 9% fast | 1.15 g | OK for street, marginal on track |
-| 48 teeth, 1840 mm | M3 | 1.13 | 13% fast | 1.11 g | over-releases in hard stops |
+| 48 teeth, 1840 mm | M3 | 1.13 | 13% fast | 1.11 g | braking capped in long, hard stops |
 | 96 teeth, 1950 mm | either | 2.0 or more | far off | — | not usable |
 
 ## Different front and rear (stagger, mixed tyres, mixed tooth counts)
