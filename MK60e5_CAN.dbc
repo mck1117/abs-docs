@@ -77,6 +77,12 @@ BO_ 419 AccelLongSensor: 5 DSC
  SG_ AccelLongOffsetStatus : 26|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ AliveCounter : 28|4@1+ (1,0) [0|14] "" Vector__XXX
 
+BO_ 691 AccelLongSensorLowRes: 5 DSC
+ SG_ AliveCounter : 8|4@1+ (1,0) [0|14] "" Vector__XXX
+ SG_ AccelLongRaw : 12|12@1+ (0.025,-51.2) [-51.2|51.175] "m/s2" Vector__XXX
+ SG_ AccelLongOffset : 24|12@1+ (0.025,-51.2) [-2.34|2.34] "m/s2" Vector__XXX
+ SG_ AccelLongStatus : 36|2@1+ (1,0) [0|3] "" Vector__XXX
+
 BO_ 690 BrakePressures: 8 DSC
  SG_ BrakePressureFL : 0|8@1+ (1,0) [0|254] "bar" Vector__XXX
  SG_ BrakePressureFR : 8|8@1+ (1,0) [0|254] "bar" Vector__XXX
@@ -94,13 +100,13 @@ BO_ 884 TyreTolerance: 5 DSC
 
 
 
-CM_ "Mk60e5 DSC (M3, software 7846816A, unmodified) PT-CAN broadcast, trimmed for track logging. Checksums are left out; alive counters are included where they are useful.";
+CM_ "Mk60e5 DSC PT-CAN broadcast, trimmed for track logging. Covers unmodified M3 (software 7846816A) and non-M (software 6862873A) DSC; frame layouts are the same on both except where noted. Checksums are left out; alive counters are included where they are useful.";
 CM_ BO_ 196 "Steering angle relayed from the F-CAN steering sensor (0x0C9), 10 ms. Only meaningful with a steering sensor fitted. Bytes 5-6 are constant.";
 CM_ SG_ 196 SteeringWheelAngle "Steering-wheel angle. Sign convention unverified.";
 CM_ SG_ 196 SteeringWheelVelocity "Steering-wheel angular velocity, relayed from a sub-channel of the sensor frame and held between updates. Same raw scaling as the angle.";
 CM_ SG_ 196 SteeringAngleStatus "Sensor status. 0 and 1 are passed through from the sensor; the meaning of 1 is a best guess.";
 CM_ BO_ 206 "Wheel speeds, 20 ms. Raw per-wheel speed: no tyre-tolerance trim, not vref. Reads 0 below about 0.6 km/h. Negative when the wheel's direction is latched as reverse (direction updates below 55 km/h only).";
-CM_ BO_ 414 "DSC/ABS status, 20 ms.";
+CM_ BO_ 414 "DSC/ABS status, 20 ms. On non-M, byte 0 bit 6 can also be set (meaning unknown; never set on M3).";
 CM_ SG_ 414 AbsActiveFront "A front wheel is in an ABS cycle.";
 CM_ SG_ 414 TcsActive "Traction control (brake or engine) intervening.";
 CM_ SG_ 414 YawTorqueActive "Yaw control is requesting an engine torque cut.";
@@ -121,12 +127,17 @@ CM_ SG_ 416 AccelLongWheel "Longitudinal accel derived from the FRONT wheel acce
 CM_ SG_ 416 AccelLat "Lateral accel from the sensor cluster, offset-corrected. Sign unverified.";
 CM_ SG_ 416 YawRate "Yaw rate from the sensor cluster, offset-corrected, clipped to +/-90 deg/s. Sign unverified.";
 CM_ SG_ 416 AliveCounter "Steps every frame, 0..14 (15 skipped).";
-CM_ BO_ 419 "Longitudinal accelerometer, 20 ms. No offset-corrected sensor ax is broadcast: corrected = AccelLongRaw - AccelLongOffset (make it a math channel).";
+CM_ BO_ 419 "Longitudinal accelerometer, 20 ms. M3 only: non-M software never transmits this frame (use 0x2B3 there). Preferred over 0x2B3 on M3: same values at finer resolution and a faster rate. No offset-corrected sensor ax is broadcast: corrected = AccelLongRaw - AccelLongOffset (make it a math channel).";
 CM_ SG_ 419 AccelLongRaw "Raw accelerometer ax: unfiltered, no zero-offset correction, includes road gradient.";
 CM_ SG_ 419 AccelLongOffset "Learned accelerometer zero offset (+/-0.238 g max), same scale as AccelLongRaw.";
 CM_ SG_ 419 AccelLongRawStatus "Value 1 is never sent for the raw signal.";
 CM_ SG_ 419 AccelLongOffsetStatus "1 = offset probably not learned yet.";
 CM_ SG_ 419 AliveCounter "Steps every frame, 0..14 (15 skipped).";
+CM_ BO_ 691 "Longitudinal accelerometer, low resolution, 50 ms. Same raw value and learned offset as 0x1A3, at 0.025 m/s2/bit. Sent by both M3 and non-M, but only while the DSC reports the accelerometer signal as available, so expect it to be missing with no sensor cluster connected. On non-M this is the only accelerometer ax frame; on M3 prefer 0x1A3. Corrected = AccelLongRaw - AccelLongOffset. Byte 0 is a checksum (not decoded).";
+CM_ SG_ 691 AccelLongRaw "Raw accelerometer ax: unfiltered, no zero-offset correction, includes road gradient. Offset-binary on the wire (raw 2048 = 0).";
+CM_ SG_ 691 AccelLongOffset "Learned accelerometer zero offset (+/-0.238 g max), same scale as AccelLongRaw.";
+CM_ SG_ 691 AccelLongStatus "Status of the accelerometer signal. Value 1 is never sent.";
+CM_ SG_ 691 AliveCounter "Steps every frame, 0..14 (15 skipped).";
 CM_ BO_ 690 "Wheel brake pressures and brake pre-fill state, 20 ms.";
 CM_ SG_ 690 BrakePressureFL "Measured/modelled wheel pressure, integer bar, clamped 0..254.";
 CM_ SG_ 690 BrakePrefillState "Brake pre-fill on fast throttle lift. 0 = not coded or inhibited, 1 = armed, 2 = active.";
@@ -141,6 +152,7 @@ BA_ "GenMsgCycleTime" BO_ 414 20;
 BA_ "GenMsgCycleTime" BO_ 416 20;
 BA_ "GenMsgCycleTime" BO_ 419 20;
 BA_ "GenMsgCycleTime" BO_ 690 20;
+BA_ "GenMsgCycleTime" BO_ 691 50;
 BA_ "GenMsgCycleTime" BO_ 884 1000;
 VAL_ 196 SteeringWheelAngle -32768 "Invalid" ;
 VAL_ 196 SteeringWheelVelocity -32768 "Invalid" ;
@@ -152,7 +164,7 @@ VAL_ 206 WheelSpeedRR -32768 "Invalid" ;
 VAL_ 414 AbsStatus 0 "Normal" 2 "OffOrDegraded" ;
 VAL_ 414 DscStatus 0 "Normal" 1 "DscOff" 2 "Failed" 3 "SteeringAngleInvalid" 4 "ModeLamp_DTC_MDM" 6 "Initialising_SensorFault" ;
 VAL_ 414 TorqueInterventionActive 0 "Inactive" 1 "Active" ;
-VAL_ 414 HillHoldCondition 0 "Inactive" 1 "Active" ;
+VAL_ 414 HillHoldCondition 0 "Inactive" 1 "Active" 3 "NotAvailable" ;
 VAL_ 414 BrakeSwitch 0 "Off" 1 "On" 2 "Fault" 3 "Invalid" ;
 VAL_ 414 BrakeApplied 0 "NotBraking" 1 "Braking" 2 "SwitchInvalid" 3 "NoWheelPressureValid" ;
 VAL_ 414 MasterCylPressure 255 "Invalid" ;
@@ -165,6 +177,9 @@ VAL_ 419 AccelLongRaw -2048 "Invalid" ;
 VAL_ 419 AccelLongOffset -2048 "Invalid" ;
 VAL_ 419 AccelLongRawStatus 0 "Valid" 2 "Invalid" ;
 VAL_ 419 AccelLongOffsetStatus 0 "Valid" 1 "NotLearned" 2 "Invalid" ;
+VAL_ 691 AccelLongRaw 4095 "Invalid" ;
+VAL_ 691 AccelLongOffset 4095 "Invalid" ;
+VAL_ 691 AccelLongStatus 0 "Valid" 2 "Invalid" ;
 VAL_ 690 BrakePressureFL 255 "Invalid" ;
 VAL_ 690 BrakePressureFR 255 "Invalid" ;
 VAL_ 690 BrakePressureRL 255 "Invalid" ;
